@@ -4,7 +4,7 @@ variable "asg_name" {}
 
 variable "nom_autoscale" {
   type        = string
-  default     = "autosacle_test"
+  default     = "autoscale_test"
 }
 
 

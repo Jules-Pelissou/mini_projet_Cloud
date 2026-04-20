@@ -13,12 +13,12 @@ variable "app_sg_id" {
   type = string
 }
 
-variable "mariadb_version" {
+variable "bdd_version" {
   default = "10.6"
 }
 
 # Type d'instance de la BD
-variable "mariadb_instance_type" {
+variable "bdd_instance_type" {
 	default     = "db.t2.micro"
 }
 

@@ -1,7 +1,7 @@
 # Politique pour augmenter la capacité 
 resource "aws_autoscaling_policy" "upscale-cpu" {
   name                   = "upscale-cpu"
-  autoscaling_group_name = var.nom_autoscale
+  autoscaling_group_name = var.asg_name
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = 1
   cooldown               = 300
@@ -21,7 +21,7 @@ resource "aws_cloudwatch_metric_alarm" "upscale-cpu-alarme" {
   threshold           = 80
 
   dimensions = {
-    "AutoScalingGroupName" = var.nom_autoscale
+    "AutoScalingGroupName" = var.asg_name
   }
 
   actions_enabled = true
@@ -31,7 +31,7 @@ resource "aws_cloudwatch_metric_alarm" "upscale-cpu-alarme" {
 # Politique pour diminuer la capacité
 resource "aws_autoscaling_policy" "downscale-cpu" {
   name                   = "${var.prefix_name}-cpu-policy-scaledown"
-  autoscaling_group_name = var.nom_autoscale
+  autoscaling_group_name = var.asg_name
   adjustment_type        = "ChangeInCapacity"
   scaling_adjustment     = "-1"
   cooldown               = 300
@@ -51,7 +51,7 @@ resource "aws_cloudwatch_metric_alarm" "downscale-cpu-alarme" {
   threshold           = 5
 
   dimensions = {
-    "AutoScalingGroupName" = var.nom_autoscale
+    "AutoScalingGroupName" = var.asg_name
   }
 
   actions_enabled = true

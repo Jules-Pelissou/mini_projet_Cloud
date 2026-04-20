@@ -27,7 +27,7 @@ resource "aws_db_subnet_group" "sr-bdd" {
 # Params de la BDD
 resource "aws_db_parameter_group" "params-bdd" {
   name        = "bdd-params"
-  family      = "mariadb10.6"
+  family      = "mariadb10.5"
 }
 
 # BDD
