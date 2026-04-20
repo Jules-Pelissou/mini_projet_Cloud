@@ -1,7 +1,7 @@
 output "host" {
-  value = aws_db_instance.mariadb.address
+  value = aws_db_instance.bdd.address
 }
 
 output "username" {
-  value = aws_db_instance.mariadb.username
+  value = aws_db_instance.bdd.username
 }
